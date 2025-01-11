@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import lombok.Data;
 
 @Data
-public class Todo {
+public class ToDo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
