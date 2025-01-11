@@ -1,9 +1,9 @@
-package com.shotaroi.springboottodoapp.service;
+package com.shotaroi.springboottodolistapp.service;
 
-import com.shotaroi.springboottodoapp.repository.ToDoRepository;
-import com.shotaroi.springboottodoapp.model.ToDo;
-import lombok.RequiredArgsConstructor;
+import com.shotaroi.springboottodolistapp.model.ToDo;
+import com.shotaroi.springboottodolistapp.repository.ToDoRepository;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -13,6 +13,7 @@ public class ToDoService {
     public ToDoService(ToDoRepository toDoRepository) {
         this.toDoRepository = toDoRepository;
     }
+
     public List<ToDo> getAllToDos() {
         return toDoRepository.findAll();
     }

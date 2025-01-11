@@ -1,19 +1,20 @@
-package com.shotaroi.springboottodoapp.controller;
+package com.shotaroi.springboottodolistapp.controller;
 
-import com.shotaroi.springboottodoapp.model.ToDo;
-import com.shotaroi.springboottodoapp.service.ToDoService;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import com.shotaroi.springboottodolistapp.model.ToDo;
+import com.shotaroi.springboottodolistapp.service.ToDoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
+@RequestMapping("/api")
 public class ToDoController {
     private final ToDoService toDoService;
+
+    @GetMapping("/todos")
+    public String getTodos() {
+        return "List of Todos";
+    }
 
     public ToDoController(ToDoService toDoService) {
         this.toDoService = toDoService;
@@ -21,7 +22,7 @@ public class ToDoController {
 
     @GetMapping("/")
     public String listToDos(Model model) {
-        model.addAttribute("todos", toDoService.getAllToDos());
+//        model.addAttribute("todos", toDoService.getAllToDos());
         return "index";
     }
 
